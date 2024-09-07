@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Smart Parking | Profile</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" type="" href="{% static 'homefiles/bower_components/jquery/dist/jquery.min.js' %}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'homefiles/bower_components/font-awesome/css/font-awesome.min.css' %}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{% static 'homefiles/bower_components/Ionicons/css/ionicons.min.css' %}">
+  <!-- Form style -->
+  <link rel="stylesheet" href="{% static 'homefiles/bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'homefiles/dist/css/AdminLTE.min.css' %}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{% static 'homefiles/plugins/iCheck/square/blue.css' %}">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+    
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>S</b>P</span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>Smart</b>Parking</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+    
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+              <li class="dropdown messages-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="label label-success">4</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 4 alerts</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li><!-- start message -->
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="{% static 'assets/img/parkingslot.png'%}" class="img-circle" alt="User Image">
+                          </div>
+                          <h4>
+                            Support Team
+                            <small><i class="fa fa-clock-o"></i> {{timeElapsed}} mins</small>
+                          </h4>
+                          <p>{{supportMailDesc}} This module is still under construction</p>
+                        </a>
+                      </li>
+                      <!-- end message -->
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="{% static 'assets/img/parkingslot.png'%}" class="img-circle" alt="User Image">
+                          </div>
+                          <h4>
+                            Design Team
+                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                          </h4>
+                          <p>{{designTeamMail}}Design is ongoing. it constantly changes</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="{% static 'assets/img/parkingslot.png'%}" class="img-circle" alt="User Image">
+                          </div>
+                          <h4>
+                            Security
+                            <small><i class="fa fa-clock-o"></i> Today</small>
+                          </h4>
+                          <p>{{developersMail}}Remind owner of KDM 000 to pay the parking fee beyond 15 minutes</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="{% static 'assets/img/parkingslot.png'%}" class="img-circle" alt="User Image">
+                          </div>
+                          <h4>
+                            Sales Department
+                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                          </h4>
+                          <p>{{salesDepartmentMail}} invoices for slot 2 are all serviced</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="{% static 'assets/img/parkingslot.png'%}" class="img-circle" alt="User Image">
+                          </div>
+                          <h4>
+                            Reviewers
+                            <small><i class="fa fa-clock-o"></i> 2 days</small>
+                          </h4>
+                          <p>{{reviewersMail}}Parking fee for KBZ 000 not paid, contact owner</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">See All Messages</a></li>
+                </ul>
+              </li>
+              <!-- Notifications: style can be found in dropdown.less -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">{{notification.new}}10</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have {{notification.new}}10 notifications</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-aqua"></i> 50 new Vehicles parked today
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-warning text-yellow"></i> Parking spaces almost full
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-red"></i> 5 unauthorized vehicles at reserved parking
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-shopping-cart text-green"></i> 25 tickets made
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-user text-red"></i> Suspicious movement
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">View all</a></li>
+                </ul>
+              </li>
+              <!-- Tasks: style can be found in dropdown.less -->
+              <li class="dropdown tasks-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-flag-o"></i>
+                  <span class="label label-danger">9</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 9 red alerts</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Section A fill capacity
+                            <small class="pull-right">20%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">20% Full</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Section B fill capacity
+                            <small class="pull-right">40%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">40% Full</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Section C fill capacity
+                            <small class="pull-right">60%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">60% Full</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Section D fill capacity
+                            <small class="pull-right">80%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">80% Full</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <!-- end task item -->
+                    </ul>
+                  </li>
+                  <li class="footer">
+                    <a href="#">View all Alerts</a>
+                  </li>
+                </ul>
+              </li>
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="{% static 'assets/img/parkingslot.png'%}" class="user-image" alt="User Image">
+                  <span class="hidden-xs">{{name}}</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <img src="{% static 'assets/img/parkingslot.png'%}" class="img-circle" alt="User Image">
+    
+                    <p class="">
+                      Vehicle ID 234 parking time
+                      <small>stationary since 4/4/24 8:36 hrs</small>
+                    </p>
+                  </li>
+                  <!-- Menu Body -->
+                  <li class="user-body">
+                    <div class="row">
+                      <div class="col-xs-4 text-center">
+                        <a href="#">Camera View</a>
+                      </div>
+                      <div class="col-xs-4 text-center">
+                        <a href="#">Real time Customer Service</a>
+                      </div>
+                      <div class="col-xs-4 text-center">
+                        <a href="#">Occurences</a>
+                      </div>
+                    </div>
+                    <!-- /.row -->
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="/monitoring/" class="btn btn-default btn-flat">Monitoring</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="/login/" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!-- Control Sidebar Toggle Button -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="{% static 'assets/img/parkingslot.png'%}" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              
+              <p>{{user.full_name}}</p>
+              
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+          <!-- search form -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search...">
+                  <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                  </span>
+            </div>
+          </form>
+          <!-- /.search form -->
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="treeview">
+              <a href="/monitoring/">
+                <i class="fa fa-dashboard"></i> <span>Monitoring</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+               <ul class="treeview-menu">
+                <li><a href="/monitoring/"><i class="fa fa-circle-o"></i> Monitoring</a></li>
+                <li><a href="/slotsTable/"><i class="fa fa-circle-o"></i> Parking Data</a></li>
+              </ul> 
+            </li>
+            {% comment %} <li class="treeview">
+              <a href="/monitoring/">
+                <i class="fa fa-dashboard"></i> <span>Monitoring</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>              
+            </li>         {% endcomment %}
+            </li>
+            <li>
+              <a href="/dashboard/">
+                <i class="fa fa-th"></i> <span>Dashboard</span>
+                <span class="pull-right-container">
+                  <small class="label pull-right bg-green">new</small>
+                </span>
+              </a>
+            </li>
+            
+          </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+    
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Information
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="/dashboard/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <!--<li><a href="#">Examples</a></li>-->
+            <li class="active">Statutory Data</li>
+          </ol>
+        </section>
+    
+        <!-- Main content -->
+        <section class="content">
+    
+          <div class="row">
+            <div class="col-md-3">
+    
+              <!-- Profile Image -->
+              <div class="box box-primary">
+                <div class="box-body box-profile">
+                  
+                  {% if user.is_authenticated %}
+                  <h3 class="profile-username text-center">{{user}}</h3>
+                  {% endif %}
+                  <p class="text-muted text-center">Summary</p>
+    
+                  <ul class="list-group list-group-unbordered">
+                    <li class="list-group-item">
+                      <b>Total Slots</b> <a class="pull-right">322</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>Filled Slots</b> <a class="pull-right">72</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>Emplty Slots</b> <a class="pull-right">250</a>
+                    </li>
+                  </ul>
+    
+                  <a href="/slotsTable/" class="btn btn-primary btn-block"><span class = "fa fa-options"></span> <b>  All Information</b></a>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+    
+              <!-- About Me Box -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Attention</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <strong><i class="fa fa-book margin-r-5"></i> Focus on sector 1</strong>
+    
+                  <p class="text-muted">
+                    All ok
+                  </p>
+    
+                  <hr>
+    
+                  <strong><i class="fa fa-map-marker margin-r-5"></i> Focus on sector 2</strong>
+    
+                  <p class="text-muted">Review movement</p>
+    
+                  <hr>
+    
+                  <strong><i class="fa fa-pencil margin-r-5"></i> Focus on sector 3</strong>
+    
+                  <p>
+                    <span class="label label-danger">Behavior suspicious</span>
+                    <span class="label label-success">parking space available</span>
+                    <span class="label label-info">secure</span>
+                    <span class="label label-warning">parked wrongly</span>
+                    <span class="label label-primary">assist driver</span>
+                  </p>
+    
+                  <hr>
+    
+                  <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+    
+                  <p>Monitoring ongoing..</p>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+                  <li><a href="#timeline" data-toggle="tab">Events</a></li>
+                  <li><a href="#settings" data-toggle="tab">customer care</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="active tab-pane" id="activity">
+                    <!--post-->
+
+                    <!--end of post-->
+    
+                    <!-- Post -->
+                    <div class="post clearfix">
+                      <div class="user-block">
+                        <span class="fa fa-camera"></span>
+                        upload a parking view video
+                        <form method="post" enctype="multipart/form-data">
+                          {% csrf_token %}
+                          {{ form.as_p }}
+                          <button type="submit">Upload</button>
+                      </form>
+                        {% comment %} <img class="img-circle img-bordered-sm" src="{% static 'homefiles/dist/img/user7-128x128.jpg' %}" alt="User Image"> {% endcomment %}
+                            <span class="username">
+                              <a href="#">Smart CCTV Area</a>
+                              <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                            </span>
+                        <span class="description">
+                            <h3>Live Parking Space View</h3>
+                        </span>
+                        
+                        <!--Start of selection setting-->
+                        <p>
+                          
+                          <span class="description">
+                          <video 
+                            id="parkingview"
+                            width="640" 
+                            height="360" 
+                            autoplay
+                            controls
+                            preload ="auto"
+                            loop
+                            >
+                            {% comment %} <source src="{% static '/assets/videos/carPark.mp4' %}" type="video/mp4"> {% endcomment %}
+                             <video>
+                            <source src="{% static '/assets/videos/carPark.webm' %}" type="video/mp4">
+                            </video> 
+                            {% comment %} <img src="{% url 'videoStream' %}" {% endcomment %}
+                                                  
+                            control pad
+                            <br>
+                            <button class="label label-success" onclick="Pauseplay()">PLAY/PAUSE</button>
+                            <button class="label label-info" onclick="BScreen()">BIG SCREEN</button>
+                            <button class="label label-primary" onclick="SScreen()">SMALL SCREEN</button>
+                            <br>
+                          </span>
+                          <!--
+                          {% for video in videos %}
+                          <h2>{{ video.title }}</h2>
+                              <video width="320" height="240" controls>
+                                  <source src="{{ video.video_file.url }}" type="video/mp4">
+                                  Your browser does not support the video tag.
+                              </video>
+                          {% endfor %}
+                         -->  
+                        </p>
+                        
+                      </div>
+                      <!-- /.user-block -->
+                      <p>
+                        
+                      </p>
+    
+                      
+                    </div>
+                    <!-- /.post -->
+    
+                    <!-- Post -->
+                    <div class="post">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="{% static 'assets/img/parkingslot.png'%}" alt="User Image">
+                            <span class="username">
+                              <a href="#">Highlights</a>
+                              <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                            </span>
+                        <span class="description">Posted 5 incidences - 5 days ago</span>
+                      </div>
+                      <!-- /.user-block -->
+                      <div class="row margin-bottom">
+                        <div class="col-sm-6">
+                          <img class="img-responsive" src="{% static 'assets/img/parkingslot.png'%}" alt="Photo">
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <img class="img-responsive" src="{% static 'assets/img/parkingslot.png'%}" alt="Photo">
+                              <br>
+                              <img class="img-responsive" src="{% static 'assets/img/parkingslot.png'%}" alt="Photo">
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-6">
+                              <img class="img-responsive" src="{% static 'assets/img/parkingslot.png'%}" alt="Photo">
+                              <br>
+                              <img class="img-responsive" src="{% static 'assets/img/parkingslot.png'%}" alt="Photo">
+                            </div>
+                            <!-- /.col -->
+                          </div>
+                          <!-- /.row -->
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.row -->
+    
+                      <ul class="list-inline">
+                        <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
+                        <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
+                        </li>
+                        <li class="pull-right">
+                          <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
+                            (5)</a></li>
+                      </ul>
+    
+                      <input class="form-control input-sm" type="text" placeholder="Type a comment">
+                    </div>
+                    <!-- /.post -->
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="timeline">
+                    <!-- The timeline -->
+                    <ul class="timeline timeline-inverse">
+                      <!-- timeline time label -->
+                      <li class="time-label">
+                            <span class="bg-red">
+                              10 Feb. 2014
+                            </span>
+                      </li>
+                      <!-- /.timeline-label -->
+                      <!-- timeline item -->
+                      <li>
+                        <i class="fa fa-envelope bg-blue"></i>
+    
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+    
+                          <h3 class="timeline-header"><a href="#">Support</a> sent you an email</h3>
+    
+                          <div class="timeline-body">
+                            Zim zala bim blah blah blah code under construction
+                          </div>
+                          <div class="timeline-footer">
+                            <a class="btn btn-primary btn-xs">Read more</a>
+                            <a class="btn btn-danger btn-xs">Delete</a>
+                          </div>
+                        </div>
+                      </li>
+                      <!-- END timeline item -->
+                      <!-- timeline item -->
+                      <li>
+                        <i class="fa fa-user bg-aqua"></i>
+    
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
+    
+                          <h3 class="timeline-header no-border"><a href="#">Norah Wa Rain</a> Submitted a complement
+                          </h3>
+                        </div>
+                      </li>
+                      <!-- END timeline item -->
+                      <!-- timeline item -->
+                      <li>
+                        <i class="fa fa-comments bg-yellow"></i>
+    
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
+    
+                          <h3 class="timeline-header"><a href="#">Manager SmartParking</a> commented on a post</h3>
+    
+                          <div class="timeline-body">
+                            All Vehicles deserve some space
+                            And time and space means safe distance
+                          </div>
+                          <div class="timeline-footer">
+                            <a class="btn btn-warning btn-flat btn-xs">View comment</a>
+                          </div>
+                        </div>
+                      </li>
+                      <!-- END timeline item -->
+                      <!-- timeline time label -->
+                      <li class="time-label">
+                            <span class="bg-green">
+                              3 Jan. 2014
+                            </span>
+                      </li>
+                      <!-- /.timeline-label -->
+                      <!-- timeline item -->
+                      <li>
+                        <i class="fa fa-camera bg-purple"></i>
+    
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
+    
+                          <h3 class="timeline-header"><a href="#">Head of Security</a> Uploaded run away vehicles</h3>
+    
+                          <div class="timeline-body">
+                            <img src="http://placehold.it/150x100" alt="..." class="margin">
+                            <img src="http://placehold.it/150x100" alt="..." class="margin">
+                            <img src="http://placehold.it/150x100" alt="..." class="margin">
+                            <img src="http://placehold.it/150x100" alt="..." class="margin">
+                          </div>
+                        </div>
+                      </li>
+                      <!-- END timeline item -->
+                      <li>
+                        <i class="fa fa-clock-o bg-gray"></i>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- /.tab-pane -->
+    
+                  <div class="tab-pane" id="settings">
+                    <div class = "box-header">
+                        <p>
+
+                        </p>
+                        <p>
+                            <div class="col-md-6">
+                                <!-- DIRECT CHAT SUCCESS -->
+                                <div class="box box-success direct-chat direct-chat-success">
+                                  <div class="box-header with-border">
+                                    <h3 class="box-title">Direct Chat</h3>
+                      
+                                    <div class="box-tools pull-right">
+                                      <span data-toggle="tooltip" title="3 New Messages" class="badge bg-green">3</span>
+                                      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                      </button>
+                                      <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+                                        <i class="fa fa-comments"></i></button>
+                                      <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                    </div>
+                                  </div>
+                                  <!-- /.box-header -->
+                                  <div class="box-body">
+                                    <!-- Conversations are loaded here -->
+                                    <div class="direct-chat-messages">
+                                      <!-- Message. Default to the left -->
+                                      <div class="direct-chat-msg">
+                                        <div class="direct-chat-info clearfix">
+                                          <span class="direct-chat-name pull-left">Judy Gateri</span>
+                                          <span class="direct-chat-timestamp pull-right">23 Feb 2:00 pm</span>
+                                        </div>
+                                        {% comment %} <!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="{% static 'homefiles/dist/img/user1-128x128.jpg' %}" alt="Message User Image">
+                                        <!-- /.direct-chat-img --> {% endcomment %}
+                                        <i width="100" height="100" class="fa fa-user bg-aqua"></i>
+                                        <div class="direct-chat-text">
+                                          Parking voucher for a day awarded
+                                        </div>
+                                        <!-- /.direct-chat-text -->
+                                      </div>
+                                      <!-- /.direct-chat-msg -->
+                      
+                                      <!-- Message to the right -->
+                                      <div class="direct-chat-msg right">
+                                        <div class="direct-chat-info clearfix">
+                                          <span class="direct-chat-name pull-right">Norah Wa Rain</span>
+                                          <span class="direct-chat-timestamp pull-left">23 Feb 2:05 pm</span>
+                                        </div>
+                                        <!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="{% static 'assets/img/parkingslot.png'%}" alt="Message User Image"><!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                          New client in the parking space
+                                        </div>
+                                        <!-- /.direct-chat-text -->
+                                      </div>
+                                      <!-- /.direct-chat-msg -->
+                                    </div>
+                                    <!--/.direct-chat-messages-->
+                      
+                                    <!-- Contacts are loaded here -->
+                                    <div class="direct-chat-contacts">
+                                      <ul class="contacts-list">
+                                        <li>
+                                          <a href="#">
+                                            <img class="contacts-list-img" src="{% static 'assets/img/parkingslot.png'%}" alt="User Image">
+                      
+                                            <div class="contacts-list-info">
+                                                  <span class="contacts-list-name">
+                                                    Jackson Nduku
+                                                    <small class="contacts-list-date pull-right">28/3/2024</small>
+                                                  </span>
+                                              <span class="contacts-list-msg">Reported misplaced car key...</span>
+                                            </div>
+                                            <!-- /.contacts-list-info -->
+                                          </a>
+                                        </li>
+                                        <!-- End Contact Item -->
+                                      </ul>
+                                      <!-- /.contatcts-list -->
+                                    </div>
+                                    <!-- /.direct-chat-pane -->
+                                  </div>
+                                  <!-- /.box-body -->
+                                  <div class="box-footer">
+                                    <form action="#" method="post">
+                                      {% csrf_token %}
+                                      <div class="input-group">
+                                        <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                                            <span class="input-group-btn">
+                                              <button type="submit" class="btn btn-success btn-flat">Send</button>
+                                            </span>
+                                      </div>
+                                    </form>
+                                  </div>
+                                  <!-- /.box-footer-->
+                                </div>
+                                <!--/.direct-chat -->
+                              </div>
+                              <!-- /.col -->
+                                    
+                          </div>
+                          <!-- /.tab-pane -->
+                        </div>
+                        <!-- /.tab-content -->
+                      </div>
+                      <!-- /.nav-tabs-custom -->
+                    </div>
+                    <!-- /.col -->
+                        </p>
+                        
+                    </div>
+                    
+                    
+                    
+          </div>
+          <!-- /.row -->
+    
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 1.0.0
+        </div>
+        <strong>Copyright &copy; 2023 <a href="/">Smart Parking</a>.</strong> All rights
+        reserved.
+      </footer>
+    
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+          <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <!-- Home tab content -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">Recent Activity</h3>
+            <ul class="control-sidebar-menu">
+              <li>
+                <a href="javascript:void(0)">
+                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+    
+                  <div class="menu-info">
+                    <h4 class="control-sidebar-subheading">Emergency parking</h4>
+    
+                    <p>Vehicle towed away</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <i class="menu-icon fa fa-user bg-yellow"></i>
+    
+                  <div class="menu-info">
+                    <h4 class="control-sidebar-subheading">VIP space fully occupied</h4>
+    
+                    <p>New phone +254(700)111-123</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+    
+                  <div class="menu-info">
+                    <h4 class="control-sidebar-subheading">Norah Joined Mailing List</h4>
+    
+                    <p>norah@Smart Parking.com</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <i class="menu-icon fa fa-file-code-o bg-green"></i>
+    
+                  <div class="menu-info">
+                    <h4 class="control-sidebar-subheading">Cleared Vehicles</h4>
+    
+                    <p>Exit time 5 seconds</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <!-- /.control-sidebar-menu -->
+    
+            <h3 class="control-sidebar-heading">Tasks Report</h3>
+            <ul class="control-sidebar-menu">
+              <li>
+                <a href="javascript:void(0)">
+                  <h4 class="control-sidebar-subheading">
+                    Vandal attempts
+                    <span class="label label-danger pull-right">0.1%</span>
+                  </h4>
+    
+                  <div class="progress progress-xxs">
+                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <h4 class="control-sidebar-subheading">
+                    Daily Coverage
+                    <span class="label label-success pull-right">95%</span>
+                  </h4>
+    
+                  <div class="progress progress-xxs">
+                    <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <h4 class="control-sidebar-subheading">
+                    New Entries
+                    <span class="label label-warning pull-right">50%</span>
+                  </h4>
+    
+                  <div class="progress progress-xxs">
+                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <h4 class="control-sidebar-subheading">
+                    Parking Clients Turnover
+                    <span class="label label-primary pull-right">68%</span>
+                  </h4>
+    
+                  <div class="progress progress-xxs">
+                    <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <!-- /.control-sidebar-menu -->
+    
+          </div>
+          <!-- /.tab-pane -->
+          <!-- Stats tab content -->
+          <div class="tab-pane" id="control-sidebar-stats-tab">Statistics</div>
+          <!-- /.tab-pane -->
+          <!-- Settings tab content -->
+          <div class="tab-pane" id="control-sidebar-settings-tab">
+            <form method="post">
+              <h3 class="control-sidebar-heading">General Settings</h3>
+    
+              <div class="form-group">
+                <label class="control-sidebar-subheading">
+                  Report panel usage
+                  <input type="checkbox" class="pull-right" checked>
+                </label>
+    
+                <p>
+                  Some information about this general settings option
+                </p>
+              </div>
+              <!-- /.form-group -->
+    
+              <div class="form-group">
+                <label class="control-sidebar-subheading">
+                  Allow mail redirect
+                  <input type="checkbox" class="pull-right" checked>
+                </label>
+    
+                <p>
+                  Other sets of options are available
+                </p>
+              </div>
+              <!-- /.form-group -->
+    
+              <div class="form-group">
+                <label class="control-sidebar-subheading">
+                  Expose avatar's name in posts
+                  <input type="checkbox" class="pull-right" checked>
+                </label>
+    
+                <p>
+                  Allow the user to show his name in chat posts
+                </p>
+              </div>
+              <!-- /.form-group -->
+    
+              <h3 class="control-sidebar-heading">Chat Settings</h3>
+    
+              <div class="form-group">
+                <label class="control-sidebar-subheading">
+                  Show me as online
+                  <input type="checkbox" class="pull-right" checked>
+                </label>
+              </div>
+              <!-- /.form-group -->
+    
+              <div class="form-group">
+                <label class="control-sidebar-subheading">
+                  Turn off notifications
+                  <input type="checkbox" class="pull-right">
+                </label>
+              </div>
+              <!-- /.form-group -->
+    
+              <div class="form-group">
+                <label class="control-sidebar-subheading">
+                  Delete chat history
+                  <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                </label>
+              </div>
+              <!-- /.form-group -->
+            </form>
+          </div>
+          <!-- /.tab-pane -->
+        </div>
+      </aside>
+      <!-- /.control-sidebar -->
+      <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+      <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery 3 -->
+    <script src="{% static 'homefiles/bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="{% static 'homefiles/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- iCheck -->
+    <script src="{% static 'homefiles/plugins/iCheck/icheck.min.js' %}"></script>
+    <!--Script for changing video screen size-->
+    <script>
+      var testvideo = document.getElementById("parkingview");
+      function Pauseplay() {
+         if (testvideo.paused) testvideo.play();
+         else testvideo.pause();
+      }
+      function BScreen() {
+         testvideo.width = 640;
+      }
+      function SScreen() {
+         testvideo.width = 320;
+      }
+    </script>
+
+    <!-- AdminLTE App -->
+    <script src="{% static 'homefiles/dist/js/adminlte.min.js' %}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{% static 'homefiles/dist/js/demo.js' %}"></script>
+    </body>
+</html>
