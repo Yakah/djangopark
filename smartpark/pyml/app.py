@@ -10,11 +10,11 @@ def demostration():
 
     # defining the params
     rect_width, rect_height = 107, 48
-    carp_park_positions_path = "data/source/CarParkPos"
-    video_path = "data/source/carPark.mp4"
+    car_park_positions_path = "data/source/CarParkPos"
+    video_path = "data/source/carPark.webm"
 
     # creating the classifier  instance which uses image processes to classify
-    classifier = Park_classifier(carp_park_positions_path, rect_width, rect_height)
+    classifier = Park_classifier(car_park_positions_path, rect_width, rect_height)
 
     # Implementation of the classy
     cap = cv2.VideoCapture(video_path)
