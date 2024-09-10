@@ -56,13 +56,13 @@ from .models import Video
 
 # # Reading a video file saved in the local storage
 class VideoFeed(object):
-    from .utils import Park_classifier
+    # from .utils import Park_classifier
     def __init__(self):
         # defining the params
         rect_width, rect_height = 107, 48
         # carp_park_positions_path = "ptmodels/CarParkPos"
-        car_park_positions_path = os.path.join(settings.BASE_DIR,"ptmodels/CarParkPos")
-        video_path = "media/videos/carPark.mp4"
+        car_park_positions_path = os.path.join(settings.BASE_DIR,"pyml/src/CarParkPos")
+        video_path = "media/videos/carPark.webm"
         self.vs = VideoStream(src=video_path).start()
         self.fps = FPS().start()
 
